@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS user_profiles (
   id          SERIAL PRIMARY KEY,
-  user_id     VARCHAR(50) UNIQUE NOT NULL,
+  user_id     VARCHAR(50) UNIQUE NOT NULL,  -- ตรงกับ auth_users.user_id
   name        VARCHAR(100) NOT NULL,
   email       VARCHAR(255) UNIQUE NOT NULL,
   role        VARCHAR(20) DEFAULT 'member',
@@ -10,9 +10,9 @@ CREATE TABLE IF NOT EXISTS user_profiles (
   updated_at  TIMESTAMP DEFAULT NOW()
 );
 
--- ข้อมูลทดสอบ (ตรงกับ auth service seed users)
+-- ข้อมูลทดสอบ (ตรงกับ auth service)
 INSERT INTO user_profiles (user_id, name, email, role) VALUES
-  ('user-001',   'Alice Smith', 'alice@example.com', 'member'),
-  ('user-002',   'Bob Jones',   'bob@example.com',   'member'),
-  ('user-admin', 'Admin User',  'admin@example.com', 'admin')
+  ('user-001', 'Alice Smith', 'alice@example.com', 'member'),
+  ('user-002', 'Bob Jones',   'bob@example.com',   'member'),
+  ('user-admin', 'Admin User', 'admin@example.com', 'admin')
 ON CONFLICT DO NOTHING;

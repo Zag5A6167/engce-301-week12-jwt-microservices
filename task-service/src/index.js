@@ -21,11 +21,7 @@ async function start() {
   let retries = 10;
   while (retries > 0) {
     try { await initDB(); break; }
-    catch (err) {
-      console.log(`[task-service] Waiting for DB... (${retries} retries left)`);
-      retries--;
-      await new Promise(r => setTimeout(r, 3000));
-    }
+    catch { retries--; await new Promise(r => setTimeout(r, 3000)); }
   }
   app.listen(PORT, () => console.log(`[task-service] Running on port ${PORT}`));
 }

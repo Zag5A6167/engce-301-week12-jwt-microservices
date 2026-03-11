@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS tasks (
               CHECK (status IN ('TODO','IN_PROGRESS','DONE')),
   priority    VARCHAR(10) DEFAULT 'medium'
               CHECK (priority IN ('low','medium','high')),
-  owner_id    VARCHAR(50) NOT NULL,
+  owner_id    VARCHAR(50) NOT NULL,     -- user_id จาก JWT
   assignee_id VARCHAR(50),
   created_at  TIMESTAMP DEFAULT NOW(),
   updated_at  TIMESTAMP DEFAULT NOW()
