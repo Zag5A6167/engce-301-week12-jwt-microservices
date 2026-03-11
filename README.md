@@ -10,5 +10,3 @@
 
 
 
-ตรวจสอบ Promtail กำลังดึง logs
-<img width="1126" height="150" alt="image" src="https://github.com/user-attachments/assets/913d01c2-7486-412c-b4c0-b06be705c9e0" />
